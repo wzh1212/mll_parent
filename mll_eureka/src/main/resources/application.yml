@@ -1,0 +1,12 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.mll.com:8761/eureka/
+    register-with-eureka: false
+  server:
+    enable-self-preservation: true
+spring:
+  application:
+    name: eureka
+server:
+  port: 8761

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xmcc.mll_order.mapper.MllOrderMapper" >
+    <insert id="insertOrder" parameterType="com.xmcc.mll_order.entity.MllOrder">
+            insert into mll_order (order_id, payment, payment_type,
+                                  post_fee, status, create_time,
+                                  update_time, payment_time, consign_time,
+                                  end_time, close_time, shipping_name,
+                                  shipping_code, user_id, buyer_message,
+                                  buyer_nick, buyer_rate, receiver_area_name,
+                                  receiver_mobile, receiver_zip_code, receiver,
+                                  expire, invoice_type, source_type,
+                                  seller_id)
+            values (#{orderId,jdbcType=BIGINT}, #{payment,jdbcType=DECIMAL}, #{paymentType,jdbcType=VARCHAR},
+                    #{postFee,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+                    #{updateTime,jdbcType=TIMESTAMP}, #{paymentTime,jdbcType=TIMESTAMP}, #{consignTime,jdbcType=TIMESTAMP},
+                    #{endTime,jdbcType=TIMESTAMP}, #{closeTime,jdbcType=TIMESTAMP}, #{shippingName,jdbcType=VARCHAR},
+                    #{shippingCode,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{buyerMessage,jdbcType=VARCHAR},
+                    #{buyerNick,jdbcType=VARCHAR}, #{buyerRate,jdbcType=VARCHAR}, #{receiverAreaName,jdbcType=VARCHAR},
+                    #{receiverMobile,jdbcType=VARCHAR}, #{receiverZipCode,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR},
+                    #{expire,jdbcType=TIMESTAMP}, #{invoiceType,jdbcType=VARCHAR}, #{sourceType,jdbcType=VARCHAR},
+                    #{sellerId,jdbcType=VARCHAR})
+    </insert>
+</mapper>

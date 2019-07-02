@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo登录</title>
+</head>
+<body>
+
+    <h1>登录页面</h1>
+
+    <form action="/authentication/form" method="post">
+        用户名：<input type="text" name="username">
+        密  码：<input type="password" name="password">
+        <button type="submit">登录</button>
+    </form>
+
+    <br>
+
+    <h1>图片验证</h1>
+    <form action="/authentication/form" method="post">
+        用户名：<input type="text" name="username"><br>
+        密  码：<input type="password" name="password"><br>
+        验证码：<input type="text" name="imageCode">
+                <img src="/code/image"><br>
+        <button type="submit">登录</button>
+    </form>
+
+    <h1>短信验证</h1>
+    <form action="/authentication/mobile" method="post">
+        手机号：<input type="text" name="mobile" value="15213662291"><br>
+        验证码：<input type="text" name="smsCode">
+                <a href="/code/sms?mobile=15213662291">发送验证码</a><br>
+        <button type="submit">登录</button>
+    </form>
+
+    <h1>QQ验证</h1>
+    <a href="/auth/qq">QQ登录</a>
+</body>
+</html>

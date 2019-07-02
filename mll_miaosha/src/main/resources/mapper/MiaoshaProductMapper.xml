@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xmcc.mll_miaosha.mapper.MiaoshaProductMapper" >
+
+    <select id="queryById" resultType="com.xmcc.mll_miaosha.entity.MllMiaoshaProduct">
+        select * from mll_miaosha_product where product_id=#{productId}
+    </select>
+
+    <update id="updateStockById">
+        <!--大于0 通过mysql行级锁解决超卖问题-->
+        update mll_miaosha_product set stock_count=stock_count-1 where stock_count>0 and product_id=#{productId}
+
+    </update>
+
+    <select id="queryAll" resultType="com.xmcc.mll_miaosha.entity.MllMiaoshaProduct">
+          select * from mll_miaosha_product
+    </select>
+
+</mapper>

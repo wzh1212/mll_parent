@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xmcc.mll_order.mapper.MllOrderItemMapper" >
+    <insert id="insertOrder" parameterType="com.xmcc.mll_common.orderDto.MllOrderItemDto">
+        insert into mll_order_item (id, item_id, goods_id,
+                                   order_id, title, price,
+                                   num, total_fee, pic_path,
+                                   seller_id)
+        values (#{id,jdbcType=BIGINT}, #{itemId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT},
+                #{orderId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL},
+                #{num,jdbcType=INTEGER}, #{totalFee,jdbcType=DECIMAL}, #{picPath,jdbcType=VARCHAR},
+                #{sellerId,jdbcType=VARCHAR})
+    </insert>
+</mapper>

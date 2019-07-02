@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xmcc.mll_miaosha.mapper.MiaoshaOrderMapper" >
+    <insert id="insert" parameterType="com.xmcc.mll_miaosha.entity.MllMiaoshaOrder">
+        insert into mll_miaosha_order(order_id,payment,product_id,user_id,status) values(#{orderId},#{payment},#{productId},#{userId},#{status})
+    </insert>
+
+    <select id="queryByUserIdAndProductId" resultType="java.lang.Integer">
+        select count(1) from mll_miaosha_order where user_id=#{userId} and product_id=#{productId}
+    </select>
+</mapper>

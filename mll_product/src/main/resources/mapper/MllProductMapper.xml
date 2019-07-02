@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xmcc.mll_product.mapper.MllProductMapper" >
+
+    <update id="updateStock">
+        update mll_product set stock_count=stock_count-#{num} where id=#{productId} and stock_count>=#{num}
+    </update>
+
+    <select id="queryById" resultType="com.xmcc.mll_product.entity.MllProduct">
+        select * from mll_product where id=#{productId}
+    </select>
+
+    <update id="stockRollback">
+        update mll_product set stock_count = stock_count+#{num} where id =#{productId}
+    </update>
+
+</mapper>

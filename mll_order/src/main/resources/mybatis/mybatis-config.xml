@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--关闭缓存，多机环境 数据更新 不会刷新缓存-->
+        <setting name="cacheEnabled" value="false"/>
+        <!--开启驼峰匹配-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--允许主键生成-->
+        <setting name="useGeneratedKeys" value="true"/>
+        <!--配置默认的执行器。SIMPLE 就是普通的执行器；
+        REUSE 执行器会重用预处理语句（prepared statements）；
+        BATCH 执行器将重用语句并执行批量更新。
+        -->
+        <setting name="defaultExecutorType" value="REUSE"/>
+        <setting name="defaultStatementTimeout" value="600"/>
+    </settings>
+    <!--指定mapper配置文件-->
+    <mappers>
+        <mapper resource="mapper/MllOrderMapper.xml"/>
+        <mapper resource="mapper/MllOrderItemMapper.xml"/>
+        <mapper resource="mapper/MllMessageMapper.xml"/>
+    </mappers>
+</configuration>

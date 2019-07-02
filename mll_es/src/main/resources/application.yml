@@ -1,0 +1,9 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.mll.com:8761/eureka/
+spring:
+  application:
+    name: es
+server:
+  port: 9003

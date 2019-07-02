@@ -1,0 +1,40 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.mll.com:8761/eureka/
+spring:
+  application:
+    name: order
+  druid:
+    url: jdbc:mysql:///mll?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    #最大链接数
+    maxActive: 30
+    #最小链接数
+    minIdle: 5
+    #获得链接的最大等待时间
+    maxWait: 10000
+  rabbitmq:
+    username: guest
+    password: guest
+    connection-timeout: 6000
+    addresses: 192.168.1.195:5672
+    virtual-host: /
+    #消息确认模式：消息能不能传递到rabbitmq 的confirm监听
+    publisher-confirms: true
+    #消息返回模式：消息传递到rabbitmq 不能传递到指定队列 的return监听
+    publisher-returns: true
+      #配合return使用 是发送端basicPublish的第三个参数
+      #设置为true时，
+      # 如果exchange根据自身类型和消息routingKey无法找到一个合适的queue存储消息，
+      # 那么broker会调用basic.return方法将消息返还给生产者;当mandatory设置为false时，
+    # 出现上述情况broker会直接将消息丢弃
+    #也就是设置为true returns才能起作用
+    template:
+      mandatory: true
+server:
+  port: 9000
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml

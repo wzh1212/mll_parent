@@ -1,0 +1,43 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.mll.com:8761/eureka/
+spring:
+  application:
+    name: product
+  druid:
+    url: jdbc:mysql:///mll?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    #最大链接数
+    maxActive: 30
+    #最小链接数
+    minIdle: 5
+    #获得链接的最大等待时间
+    maxWait: 10000
+  rabbitmq:
+    username: guest
+    password: guest
+    connection-timeout: 6000
+    addresses: 192.168.1.195:5672
+    virtual-host: /
+    publisher-confirms: true
+    puHGblisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        #手动确认
+        acknowledge-mode: manual
+        #在消费端创建多少个线程 对队列中的消息进行消费
+        #如果消息很多 就可以启动多线程消费  但是如果要保证消息的顺序最好使用一个
+        concurrency: 1
+        #表示最多可以创建多少个线程  因为是连接池创建的
+        max-concurrency: 1
+        #就是qos  表示一次在消息队列中取多少消息  限流的目的
+        prefetch: 1
+server:
+  port: 9001
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml

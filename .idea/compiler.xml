@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mll_common" />
+        <module name="mll_es" />
+        <module name="mll_eureka" />
+        <module name="mll_miaosha" />
+        <module name="mll_order" />
+        <module name="mll_parent" />
+        <module name="mll_product" />
+        <module name="mll_security" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mll_common" options="-parameters" />
+      <module name="mll_es" options="-parameters" />
+      <module name="mll_eureka" options="-parameters" />
+      <module name="mll_miaosha" options="-parameters" />
+      <module name="mll_order" options="-parameters" />
+      <module name="mll_product" options="-parameters" />
+      <module name="mll_security" options="-parameters" />
+    </option>
+  </component>
+</project>
